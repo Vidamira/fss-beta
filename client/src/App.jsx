@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import Blog from './pages/Blog';
 import Projects from './pages/Projects';
 import Container from './components/Container';
+import Footer from './components/Footer';
 
 import axios from 'axios';
 import {Toaster} from 'react-hot-toast'
@@ -31,6 +32,7 @@ function App() {
           <Route path='/login' element={<Login />} />
         </Routes>
       </Container>
+      <Footer />
       
     </>
   )

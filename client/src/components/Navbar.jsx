@@ -1,31 +1,38 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import logo from '../../public/fs-logo.png';
+import logo from '/fs-logo.png';
+import StyledButton from './StyledButton';
 
 const StyledNav = styled.nav`
-  width: 100%;
+  width: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1.5rem 4rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #000000; 
 `;
 
 const StyledNavLink = styled(Link)`
   color: #333;
   text-decoration: none;
-  padding: 0.5rem 1rem;
+  padding: 0.8rem 1rem;
   font-weight: bold;
   transition: color 0.2s ease-in-out;
 
   &:hover {
-    color: #007bff;
+    color: #E79800;
   }
 `;
 
 const StyledLogo = styled.img`
   width: 100px;
   height: auto;
+  margin-right: 2rem; 
+`;
+
+const StyledNavLinksContainer = styled.div`
+  display: flex; 
 `;
 
 const Navbar = () => {
@@ -34,17 +41,14 @@ const Navbar = () => {
       <Link to="/" style={{ display: 'flex', alignItems: 'center' }}>
         <StyledLogo src={logo} alt="Company Logo" />
       </Link>
-      <ul>
-        <li>
-          <StyledNavLink to="/agency">Agency</StyledNavLink>
-        </li>
-        <li>
-          <StyledNavLink to="/projects">Projects</StyledNavLink>
-        </li>
-        <li>
-          <StyledNavLink to="/blog">Blog</StyledNavLink>
-        </li>
-      </ul>
+      <StyledNavLinksContainer>
+        <StyledNavLink to="/agency">Agency</StyledNavLink>
+        <StyledNavLink to="/projects">Projects</StyledNavLink>
+        <StyledNavLink to="/blog">Blog</StyledNavLink>
+      </StyledNavLinksContainer>
+      <div>
+        <StyledButton>Contact</StyledButton>
+      </div>
     </StyledNav>
   );
 };

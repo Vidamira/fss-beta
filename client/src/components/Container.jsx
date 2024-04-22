@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 const StyledContainer = styled.div`
   
-  padding: 2rem;
+  padding: 4rem;
   margin: 0 auto;
-  background-color: blue;
+  background-color: #000000;
   height: 90vh;
   color: #f0f0f0
 `;
