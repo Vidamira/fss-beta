@@ -1,45 +1,80 @@
-import { useState } from "react";
-import axios from  'axios';
-import {toast} from 'react-hot-toast';
+import { useState, useContext } from "react";
+import { UserContext } from '../../context/userContext';
+import axios from 'axios';
+import { toast } from 'react-hot-toast';
 import { useNavigate } from "react-router-dom";
+import StyledFormContainer from '../components/StyledFormContainer';
+import StyledButton from '../components/StyledButton';
+import { StyledLabel, StyledInput } from '../components/StyledForm';
 
 export default function Admin() {
-  const navigate = useNavigate()
+  const [isVisible, setIsVisible] = useState(false); // State for form visibility
+
+  const navigate = useNavigate();
   const [data, setData] = useState({
-    name:'',
-    email:'',
-    password:'',
-  })
+    name: '',
+    email: '',
+    password: '',
+  });
+
   const registerUser = async (e) => {
     e.preventDefault();
-    const {name, email, password} = data
+    const { name, email, password } = data;
     try {
-      const {data} = await axios.post('/admin', {
-        name, email, password
-      })
-      if(data.error) {
-        toast.error(data.error)
+      const { data } = await axios.post('/admin', {
+        name,
+        email,
+        password,
+      });
+      if (data.error) {
+        toast.error(data.error);
       } else {
-        setData({})
-        toast.success('Access granted. Hello!')
-        navigate('/')
+        setData({});
+        toast.success('Access granted. Hello!');
+        navigate('/');
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
+
+  const toggleForm = () => {
+    setIsVisible(!isVisible); // Toggle form visibility
+  };
+
+  const { user } = useContext(UserContext);
 
   return (
     <div>
-      <form onSubmit={registerUser}>
-        <label>Name</label>
-        <input type='text' placeholder='enter name..' value={data.name} onChange={(e) => setData({...data, name: e.target.value})}/>
-        <label>Email</label>
-        <input type='email' placeholder='enter email..' value={data.email} onChange={(e) => setData({...data, email: e.target.value})}/>
-        <label>Password</label>
-        <input type='password' placeholder='enter password..' value={data.password} onChange={(e) => setData({...data, password: e.target.value})}/>
-        <button type='submit'>add user</button>
-      </form>
+      <StyledFormContainer>
+        <h2 onClick={toggleForm}>{isVisible ? "Close Form" : "Add new user"}</h2>
+        {isVisible && ( // Conditionally render form based on visibility state
+          <form onSubmit={registerUser}>
+            <StyledLabel>Name</StyledLabel>
+            <StyledInput
+              type='text'
+              placeholder='enter name..'
+              value={data.name}
+              onChange={(e) => setData({ ...data, name: e.target.value })}
+            />
+            <StyledLabel>Email</StyledLabel>
+            <StyledInput
+              type='email'
+              placeholder='enter email..'
+              value={data.email}
+              onChange={(e) => setData({ ...data, email: e.target.value })}
+            />
+            <StyledLabel>Password</StyledLabel>
+            <StyledInput
+              type='password'
+              placeholder='enter password..'
+              value={data.password}
+              onChange={(e) => setData({ ...data, password: e.target.value })}
+            />
+            <StyledButton type='submit'>add user</StyledButton>
+          </form>
+        )}
+      </StyledFormContainer>
     </div>
-  )
+  );
 }
