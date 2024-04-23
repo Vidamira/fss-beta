@@ -6,7 +6,7 @@ const StyledContainer = styled.div`
   padding: 4rem;
   margin: 0 auto;
   background-color: #000000;
-  height: 90vh;
+  height: auto;
   color: #f0f0f0
 `;
 

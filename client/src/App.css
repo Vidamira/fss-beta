@@ -9,3 +9,9 @@ body {
   background-color: #ce1515;
 }
 
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%; 
+  gap: 1rem; 
+}

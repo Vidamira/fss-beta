@@ -8,7 +8,7 @@ import StyledButton from '../components/StyledButton';
 import { StyledLabel, StyledInput } from '../components/StyledForm';
 
 export default function Admin() {
-  const [isVisible, setIsVisible] = useState(false); // State for form visibility
+  const [isVisible, setIsVisible] = useState(false); 
 
   const navigate = useNavigate();
   const [data, setData] = useState({
@@ -39,7 +39,7 @@ export default function Admin() {
   };
 
   const toggleForm = () => {
-    setIsVisible(!isVisible); // Toggle form visibility
+    setIsVisible(!isVisible); 
   };
 
   const { user } = useContext(UserContext);
@@ -47,8 +47,8 @@ export default function Admin() {
   return (
     <div>
       <StyledFormContainer>
-        <h2 onClick={toggleForm}>{isVisible ? "Close Form" : "Add new user"}</h2>
-        {isVisible && ( // Conditionally render form based on visibility state
+        <h2 onClick={toggleForm}>{isVisible ? "Close" : "Add new user"}</h2>
+        {isVisible && ( 
           <form onSubmit={registerUser}>
             <StyledLabel>Name</StyledLabel>
             <StyledInput
