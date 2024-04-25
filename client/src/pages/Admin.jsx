@@ -31,7 +31,7 @@ export default function Admin() {
       } else {
         setData({});
         toast.success('Access granted. Hello!');
-        navigate('/');
+        //navigate('/admin');
       }
     } catch (error) {
       console.log(error);
@@ -46,6 +46,7 @@ export default function Admin() {
 
   return (
     <div>
+      
       <StyledFormContainer>
         <h2 onClick={toggleForm}>{isVisible ? "Close" : "Add new user"}</h2>
         {isVisible && ( 

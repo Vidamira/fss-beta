@@ -45,6 +45,7 @@ const Navbar = () => {
         <StyledNavLink to="/agency">Agency</StyledNavLink>
         <StyledNavLink to="/projects">Projects</StyledNavLink>
         <StyledNavLink to="/blog">Blog</StyledNavLink>
+        <StyledNavLink to="/login">login temp</StyledNavLink>
       </StyledNavLinksContainer>
       <div>
         <StyledButton>Contact</StyledButton>

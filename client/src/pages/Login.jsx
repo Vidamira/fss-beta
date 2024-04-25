@@ -22,7 +22,7 @@ export default function Login() {
             toast.error(data.error)
           } else {
             setData({});
-            navigate('/admin')
+            navigate('/dashboard')
 
           }
         } catch (error) {

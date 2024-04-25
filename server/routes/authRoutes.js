@@ -3,7 +3,7 @@ const router = express.Router();
 const cors = require('cors');
 const { test, registerUser, loginUser, getProfile } = require('../controllers/authController')
 
-//middle
+//cors
 router.use(
     cors({
         credentials: true,
@@ -14,6 +14,6 @@ router.use(
 router.get('/', test)
 router.post('/admin', registerUser)
 router.post('/login', loginUser)
-router.post('/admin', getProfile)
+router.post('/profile', getProfile)
 
 module.exports = router

@@ -1,6 +1,6 @@
 const express = require('express');
-const dotenv = require('dotenv').config()
-const cors = require('cors')
+require('dotenv').config();
+const cors = require('cors');
 const {mongoose} = require('mongoose')
 const cookieParser = require('cookie-parser')
 
@@ -17,6 +17,8 @@ app.use(express.json());
 //middleware for jsonwebtokens
 app.use(cookieParser());
 app.use(express.urlencoded({extended: false}))
+
+app.use('/api/blogs', require('./routes/blogRoutes'));
 
 
 app.use('/', require('./routes/authRoutes'))
