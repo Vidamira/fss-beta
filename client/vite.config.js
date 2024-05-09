@@ -8,4 +8,9 @@ export default defineConfig({
       cachedChecks: false,
     },
   },
+  // Define Environment Variables
+  define: {
+    'process.env.REACT_APP_BASE_URL': process.env.VITE_APP_BASE_URL,
+    
+  },
 });

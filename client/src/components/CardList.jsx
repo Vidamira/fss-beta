@@ -1,19 +1,25 @@
+import styled from 'styled-components';
 import React from 'react';
-//import './App.css'
-import Card from './Card'; 
+import Card from './Card';
+
+const StyledCardList = styled.div`
+  display: flex;
+  flex-wrap: nowrap;
+  
+  @media (max-width: 767px) { 
+    width: 100%; 
+    flex-wrap: wrap;
+  }
+`;
 
 const CardList = ({ cards }) => {
   return (
-    <div className="card-list">
+    <StyledCardList>
       {cards.map((card) => (
-        <Card key={card.id}>
-          <h2>{card.title}</h2>
-          <p>{card.content}</p>
-        </Card>
+        <Card key={card.id} {...card} />
       ))}
-    </div>
+    </StyledCardList>
   );
 };
-
 
 export default CardList;

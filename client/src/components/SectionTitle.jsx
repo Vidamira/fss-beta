@@ -9,20 +9,24 @@ const StyledSectionTitle = styled.div`
   position: relative;
 
   @media (max-width: 768px) { 
-    flex-direction: column; 
+    flex-direction: column-reverse; 
     align-items: flex-start; 
   }
 `;
 
+//abstract gradient 
 const GradientBar = styled.div`
   position: absolute;
   top: -5px;
-  left: ${({ isReversed }) => (isReversed ? 'auto' : '0')};
-  right: ${({ isReversed }) => (isReversed ? '0' : 'auto')};
+  right: 0; 
   width: 50px;
   height: 5px;
   background: linear-gradient(to right, #F80404, #E79800);
   border-radius: 1px;
+
+  @media (max-width: 768px) {
+    left: 0; 
+  }
 `;
 
 const TitleText = styled.p`
@@ -39,16 +43,17 @@ const TitleH1 = styled.h1`
   margin: 0;
 `;
 
-const AlternateSectionTitle = ({ title, subtitle, isReversed }) => {
+const SectionTitle = ({ title, subtitle, isReversed }) => {
   return (
     <StyledSectionTitle isReversed={isReversed}>
       <GradientBar />
       <>
-        <TitleH1>{title}</TitleH1>
         <TitleText>{subtitle}</TitleText>
+        <TitleH1>{title}</TitleH1>
+        
       </>
     </StyledSectionTitle>
   );
 };
 
-export default AlternateSectionTitle;
+export default SectionTitle;

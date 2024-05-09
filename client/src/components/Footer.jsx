@@ -7,7 +7,7 @@ const StyledFooter = styled.footer`
   justify-content: space-between; 
   align-items: flex-start; 
   padding: 4rem 2rem;
-  background-color: #000000; 
+  background-color: #0F0F0F; 
   color: #f0f0f0; 
 `;
 
@@ -49,6 +49,9 @@ const Footer = () => {
       </StyledLogoInfo>
       <div style={{ display: 'flex' }}> 
         <div>
+
+          {/* 
+          
           <h4>About Us</h4>
           <StyledFooterLinkContainer>
             <li>
@@ -64,6 +67,9 @@ const Footer = () => {
               <StyledFooterLink to="/blog">Blog</StyledFooterLink>
             </li>
           </StyledFooterLinkContainer>
+          
+          */}
+          
         </div>
         <div>
           <h4>Legal</h4>
@@ -85,5 +91,7 @@ const Footer = () => {
 };
 
 export default Footer;
+
+
 
 

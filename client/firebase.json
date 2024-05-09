@@ -1,7 +1,7 @@
 {
   "hosting": {
     "site": "faltstein-landing",
-    "public": "client",
+    "public": "dist",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -10,7 +10,7 @@
     "rewrites": [
       {
         "source": "**",
-        "destination": "/client/index.html"
+        "destination": "/index.html"
       }
     ]
   }
